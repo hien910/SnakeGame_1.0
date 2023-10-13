@@ -1,0 +1,5 @@
+Player2 2100
+hien 2000
+Player5 1000
+Player5 800
+Player5 200

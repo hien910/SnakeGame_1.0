@@ -1,3 +1,5 @@
+package entity;
+
 public class User {
     private String name;
     private Integer score;
@@ -15,9 +17,7 @@ public class User {
         this.score = score;
     }
 
-    public User(){
-        if ()
-    }
+
 
     public String getName() {
         return name;
@@ -34,4 +34,12 @@ public class User {
     public void setScore(Integer score) {
         this.score = score;
     }
+
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
 }

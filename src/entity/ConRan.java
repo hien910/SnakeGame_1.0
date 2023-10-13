@@ -1,8 +1,16 @@
+package entity;
+
+import data.Data;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
+
 public class ConRan {
+
+    private Data data;
+
     int doDai = 3;
     int[] x;
     int[] y;
@@ -103,18 +111,21 @@ public class ConRan {
         for (int i = 1; i < doDai; i++) {
             if (x[0] == x[i] && y[0] == y[i]) {
                 String name = JOptionPane.showInputDialog("Tên người chơi: ");
-                RanSanMoiJava.users.add((new User(name,GameScreen.score)));
+                RanSanMoiJava.users.add((new User(name, GameScreen.score)));
 
                 RanSanMoiJava.UpdateData();
+//                entity.RanSanMoiJava.readData();
 
 
                 GameScreen.isPlaying = false;
                 GameScreen.isGameOver = true;
                 System.out.println("GAME OVER");
 
+
                 GameScreen.score=0;
                 GameScreen.currentLevel=1;
                 speed=500;
+                maxlen =5;
             }
         }
 
@@ -129,7 +140,7 @@ public class ConRan {
                 GameScreen.bg[x[0]][y[0]] = 0;
                 GameScreen.bg[layToaDoMoi().x][layToaDoMoi().y] = 2;
 
-                GameScreen.score= GameScreen.score +(100*GameScreen.currentLevel);
+                GameScreen.score= GameScreen.score +(100* GameScreen.currentLevel);
             }
 
 

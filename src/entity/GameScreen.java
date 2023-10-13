@@ -1,8 +1,10 @@
-import javax.imageio.ImageIO;
+package entity;
+
+import data.Data;
+import entity.ConRan;
+
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
 import static java.lang.Thread.sleep;
 
@@ -11,10 +13,10 @@ public class GameScreen extends JPanel implements Runnable {
     static int padding = 10;
     static int WIDTH = 400;
     static int HEIGHT = 400;
-    static boolean isPlaying = false;
-    static boolean isGameOver = false;
+    public static boolean isPlaying = false;
+    public static boolean isGameOver = false;
     static boolean enableTextStartGame = true;
-    ConRan ran;
+    public ConRan ran;
     Thread thread;
     static int currentLevel= 1;
     static int score=0;
@@ -111,15 +113,16 @@ public class GameScreen extends JPanel implements Runnable {
 
         for (int i = 0; i < RanSanMoiJava.users.size(); i++) {
             if (i<5){
-                g.drawString((i+1)+". "+RanSanMoiJava.users.get(i).toString(),480,i*30+230);
+                g.drawString((i+1)+". "+ RanSanMoiJava.users.get(i).toString(),480,i*30+230);
             }
 
         }
+//        System.out.println(entity.RanSanMoiJava.users);
 
 
 //        Image image = null;
 //        try {
-//            image = ImageIO.read(new File("D:/sourcecode/j22-basic java/snaketest/src/image/head.png"));
+//            image = ImageIO.read(new File("D:/sourcecode/j22-basic java/SnakeGame_1.0/src/image/head.png"));
 //            g.drawImage(image,0,0,null);
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);

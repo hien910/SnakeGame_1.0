@@ -1,3 +1,5 @@
+package entity;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -12,6 +14,7 @@ public class RanSanMoiJava extends JFrame {
     GameScreen game;
     public static ArrayList<User> users;
 
+
     public RanSanMoiJava() {
         setSize(750, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); /// tat cua so ung dung se tat luon
@@ -21,7 +24,7 @@ public class RanSanMoiJava extends JFrame {
 
         game = new GameScreen();
         add(game);
-        this.addKeyListener(new handler());
+        this.addKeyListener(new Handler());
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -33,11 +36,11 @@ public class RanSanMoiJava extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        RanSanMoiJava f = new RanSanMoiJava();
-    }
+//    public static void main(String[] args) {
+//        RanSanMoiJava f = new RanSanMoiJava();
+//    }
 
-    private class handler implements KeyListener {
+    private class Handler implements KeyListener {
         @Override
         public void keyTyped(KeyEvent e) {
         }
@@ -77,16 +80,27 @@ public class RanSanMoiJava extends JFrame {
 
     public static void UpdateData() {
         FileWriter fw = null;
+//        int countPlayer= 0;
+//        for (int i = 0; i < users.size(); i++) {
+//            String[] s = users.get(i).getName().split("er");
+//            int a = Integer.parseInt(s[1]);
+//
+//            if (countPlayer < a) {
+//                countPlayer = Integer.parseInt(s[1]);
+//            }
+//        }
         try {
-            fw = new FileWriter("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data.txt");
+            fw = new FileWriter("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data\\data.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-
-
-            for (User u : users) {
-                bw.write(u.getName()+" "+ u.getScore());
+            for (int i = 0; i < users.size(); i++) {
+                User u = new User(users.get(i).getName(),users.get(i).getScore());
+                if (users.get(i).getName()== null ){
+                    bw.write("Player"+users.size()+" "+ users.get(i).getScore());
+                }else {
+                    bw.write(u.getName() + " " + u.getScore());
+                }
                 bw.newLine();
             }
-
 
             bw.close();
         } catch (IOException e) {
@@ -99,17 +113,27 @@ public class RanSanMoiJava extends JFrame {
 
     public static void readData() {
         try {
-            FileReader fr = new FileReader("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data.txt");
+            FileReader fr = new FileReader("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data\\data.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = null;
             while ((line = br.readLine()) != null) {
                 String[] str = line.split(" ");
                 users.add(new User(str[0], Integer.parseInt(str[1])));
+//                for (int i = 0; i < users.size(); i++) {
+//                    if (users.get(i).getName()== null){
+//                        users.add(new entity.User("Player"+users.size(), Integer.parseInt(str[1])));
+//                    }else {
+//                        users.add(new entity.User(str[0], Integer.parseInt(str[1])));
+//                    }
+//
+//                }
             }
+
             br.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         sortByScore(users);
 
     }
