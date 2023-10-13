@@ -1,4 +1,4 @@
-import entity.RanSanMoiJava;
+import logic.RanSanMoiJava;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,8 @@
-package entity;
+package logic;
+
+import entity.ConRan;
+import entity.GameScreen;
+import entity.User;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;

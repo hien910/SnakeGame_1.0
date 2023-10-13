@@ -1,6 +1,7 @@
 package entity;
 
 import data.Data;
+import logic.RanSanMoiJava;
 
 import javax.swing.*;
 import java.awt.*;
@@ -114,7 +115,7 @@ public class ConRan {
                 RanSanMoiJava.users.add((new User(name, GameScreen.score)));
 
                 RanSanMoiJava.UpdateData();
-//                entity.RanSanMoiJava.readData();
+//                logic.RanSanMoiJava.readData();
 
 
                 GameScreen.isPlaying = false;

@@ -1,7 +1,7 @@
 package entity;
 
 import data.Data;
-import entity.ConRan;
+import logic.RanSanMoiJava;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,6 +54,8 @@ public class GameScreen extends JPanel implements Runnable {
 
     public void paintBg(Graphics g) {
         g.setColor(Color.black);
+//        g.drawImage(Data.imageBg, 20,20,null);
+
         g.fillRect(0, 0, WIDTH + padding * 2+300, HEIGHT + padding * 2);
 
         for (int i = 0; i < 20; i++) {
@@ -117,7 +119,7 @@ public class GameScreen extends JPanel implements Runnable {
             }
 
         }
-//        System.out.println(entity.RanSanMoiJava.users);
+//        System.out.println(logic.RanSanMoiJava.users);
 
 
 //        Image image = null;
