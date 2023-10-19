@@ -10,7 +10,6 @@ import java.util.Random;
 
 public class ConRan {
 
-    private Data data;
 
     int doDai = 3;
     int[] x;
@@ -21,10 +20,12 @@ public class ConRan {
     public static int GO_RIGHT = -2;
     int vector = ConRan.GO_RIGHT;
     long t1 = 0;
-    long t2 = 0;
+    long t2 ;
     double speed = 500;
-    int maxlen = 5;
+    int maxLength = 7;
     boolean updateChangeVector = false;
+    int soMoi = 0;                  //
+    int xuatMoiTo = 5;
 
 
     public ConRan() {
@@ -48,13 +49,13 @@ public class ConRan {
         y = new int[20];
 
         x[0] = 5;
-        y[0] = 5;
+        y[0] = 6;
 
         x[1] = 5;
-        y[1] = 4;
+        y[1] = 5;
 
         x[2] = 5;
-        y[2] = 3;
+        y[2] = 4;
 
         vector = ConRan.GO_RIGHT;
     }
@@ -79,18 +80,27 @@ public class ConRan {
 
     }
 
+    public boolean checkPoint(Point p) {
+        if (p.x < 19 && p.y < 19) {
+            return !toaTrungVoiRan(p.x, p.y) &&
+                    !toaTrungVoiRan(p.x + 1, p.y) &&
+                    !toaTrungVoiRan(p.x, p.y + 1) &&
+                    !toaTrungVoiRan(p.x + 1, p.y + 1);
+        }
+        return false;
+    }
+
     public boolean toaTrungVoiRan(int a, int b) {
         for (int i = 0; i < doDai; i++) {
             if (x[i] == a && y[i] == b) {
                 return true;
-
             }
         }
         return false;
     }
 
-    public double getCurrentSpeed(){
-        double speed=500;
+    public double getCurrentSpeed() {
+        double speed = 500;
         for (int i = 0; i < GameScreen.currentLevel; i++) {
             speed = speed * (0.8);
         }
@@ -99,19 +109,23 @@ public class ConRan {
 
     public void update() {
 
-        if (doDai == maxlen) {
+        if (doDai == maxLength) {
             GameScreen.isPlaying = false;
             resetGame();
 
             GameScreen.currentLevel++;
-            maxlen +=3;
-            speed =getCurrentSpeed();
+            maxLength += 3;
+            speed = getCurrentSpeed();
             System.out.println(speed);
         }
 
         for (int i = 1; i < doDai; i++) {
             if (x[0] == x[i] && y[0] == y[i]) {
+
                 String name = JOptionPane.showInputDialog("Tên người chơi: ");
+                if (name == null) {
+                    name = "Player" + RanSanMoiJava.users.size();
+                }
                 RanSanMoiJava.users.add((new User(name, GameScreen.score)));
 
                 RanSanMoiJava.UpdateData();
@@ -123,26 +137,70 @@ public class ConRan {
                 System.out.println("GAME OVER");
 
 
-                GameScreen.score=0;
-                GameScreen.currentLevel=1;
-                speed=500;
-                maxlen =5;
+                GameScreen.score = 0;
+                GameScreen.currentLevel = 1;
+                speed = 500;
+                maxLength = 5;
             }
         }
 
 
         if (System.currentTimeMillis() - t1 > speed) {
-
-
             updateChangeVector = true;
+            Point point = layToaDoMoi();
+
             if (GameScreen.bg[x[0]][y[0]] == 2) {
                 doDai++;
+
+                soMoi++;
+                if (soMoi % xuatMoiTo == 0) {
+                    xuatMoiTo += 3;
+                    soMoi = 0;
+
+                    while (!checkPoint(point)) {
+                        point = layToaDoMoi();
+                    }
+                    GameScreen.bg[point.x][point.y] = 3;
+                    GameScreen.bg[point.x + 1][point.y] = 3;
+                    GameScreen.bg[point.x][point.y + 1] = 3;
+                    GameScreen.bg[point.x + 1][point.y + 1] = 3;
+                    t2 = 0;
+                }
 
                 GameScreen.bg[x[0]][y[0]] = 0;
                 GameScreen.bg[layToaDoMoi().x][layToaDoMoi().y] = 2;
 
-                GameScreen.score= GameScreen.score +(100* GameScreen.currentLevel);
+                GameScreen.score = GameScreen.score + (100 * GameScreen.currentLevel);
+            } else if (GameScreen.bg[x[0]][y[0]] == 3) {
+                for (int i = x[0] - 1; i < x[0] + 2; i++) {
+                    for (int j = y[0] - 1; j < y[0] + 2; j++) {
+                        if (i >= 0 && i <= 19 && j >= 0 && j <= 19 && GameScreen.bg[i][j] == 3) {
+                            GameScreen.bg[i][j] = 0;
+                        }
+                    }
+                }
+                GameScreen.bg[x[0]][y[0]] = 0;
+                GameScreen.bg[point.x][point.y] = 0;
+                GameScreen.bg[point.x + 1][point.y] = 0;
+                GameScreen.bg[point.x][point.y + 1] = 0;
+                GameScreen.bg[point.x + 1][point.y + 1] = 0;
+
+                GameScreen.score = GameScreen.score + (1000 * GameScreen.currentLevel);
             }
+
+
+
+            if (t2==20) {
+                for (int i = 0; i < 20; i++) {
+                    for (int j = 0; j < 20; j++) {
+                        if (GameScreen.bg[i][j]==3){
+                            GameScreen.bg[i][j]=0;
+                        }
+                    }
+                }
+                t2=0;
+            }
+
 
 
             for (int i = doDai - 1; i > 0; i--) {
@@ -161,6 +219,8 @@ public class ConRan {
 
 
             t1 = System.currentTimeMillis();
+            t2++;
+
         }
 
     }

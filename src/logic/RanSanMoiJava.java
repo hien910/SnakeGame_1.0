@@ -20,8 +20,8 @@ public class RanSanMoiJava extends JFrame {
 
 
     public RanSanMoiJava() {
-        setSize(750, 500);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); /// tat cua so ung dung se tat luon
+        setSize(735, 460);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); /// tat cua so chuong trinh se tat luon
 
         users = new ArrayList<>();
         readData();
@@ -84,15 +84,6 @@ public class RanSanMoiJava extends JFrame {
 
     public static void UpdateData() {
         FileWriter fw = null;
-//        int countPlayer= 0;
-//        for (int i = 0; i < users.size(); i++) {
-//            String[] s = users.get(i).getName().split("er");
-//            int a = Integer.parseInt(s[1]);
-//
-//            if (countPlayer < a) {
-//                countPlayer = Integer.parseInt(s[1]);
-//            }
-//        }
         try {
             fw = new FileWriter("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data\\data.txt");
             BufferedWriter bw = new BufferedWriter(fw);
@@ -111,8 +102,6 @@ public class RanSanMoiJava extends JFrame {
             throw new RuntimeException(e);
         }
         sortByScore(users);
-
-
     }
 
     public static void readData() {
@@ -123,14 +112,6 @@ public class RanSanMoiJava extends JFrame {
             while ((line = br.readLine()) != null) {
                 String[] str = line.split(" ");
                 users.add(new User(str[0], Integer.parseInt(str[1])));
-//                for (int i = 0; i < users.size(); i++) {
-//                    if (users.get(i).getName()== null){
-//                        users.add(new entity.User("Player"+users.size(), Integer.parseInt(str[1])));
-//                    }else {
-//                        users.add(new entity.User(str[0], Integer.parseInt(str[1])));
-//                    }
-//
-//                }
             }
 
             br.close();

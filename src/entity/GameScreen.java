@@ -25,11 +25,16 @@ public class GameScreen extends JPanel implements Runnable {
         ran = new ConRan();
         Data.loadImage();
         thread = new Thread(this);
-        thread.start();
+        thread.start();                                       // run
 
         bg[15][16] = 2;
 
+//        bg[11][11] =3;
+//        bg[11][10] =3;
+//        bg[10][11] =3;
+//        bg[10][10] =3;
     }
+
 
     public void run() {
         long t1 = 0;
@@ -41,7 +46,6 @@ public class GameScreen extends JPanel implements Runnable {
 
             if (isPlaying) {
                 ran.update();
-
             }
             repaint();
             try {
@@ -54,9 +58,11 @@ public class GameScreen extends JPanel implements Runnable {
 
     public void paintBg(Graphics g) {
         g.setColor(Color.black);
-//        g.drawImage(Data.imageBg, 20,20,null);
+
+
 
         g.fillRect(0, 0, WIDTH + padding * 2+300, HEIGHT + padding * 2);
+//
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -66,6 +72,11 @@ public class GameScreen extends JPanel implements Runnable {
                     g.drawImage(Data.imageWorm, i * 20 - 6 + padding, j * 20 - 6 + padding, null);
 //                    g.fillRect(i * 20 + 1, j * 20 + 1, 18, 18);
 //                    g.setColor(Color.GRAY);
+                }
+                if (bg[i][j]==3){
+//                    g.drawImage(Data.imageWormKing, i * 20 - 6 + padding, j * 20 - 6 + padding, null);
+                    g.setColor(Color.yellow);
+                    g.fillRect(i * 20 +padding, j * 20 +padding, 18, 18);
 
 
                 }
