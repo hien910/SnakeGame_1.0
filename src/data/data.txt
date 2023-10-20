@@ -1,7 +1,5 @@
 hienvippro 15000
-Player7 3200
-Player8 3000
-Player5 3000
-hiendb 2400
-Player4 2400
-Player6 600
+Player4 6600
+hiendb 5400
+Player5 300
+Player6 200

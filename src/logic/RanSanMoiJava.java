@@ -29,6 +29,7 @@ public class RanSanMoiJava extends JFrame {
         game = new GameScreen();
         add(game);
         this.addKeyListener(new Handler());
+
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

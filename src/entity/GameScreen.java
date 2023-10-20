@@ -62,7 +62,9 @@ public class GameScreen extends JPanel implements Runnable {
 
 
         g.fillRect(0, 0, WIDTH + padding * 2+300, HEIGHT + padding * 2);
-//
+
+        int m= 30;
+        int n = 30;
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -73,15 +75,23 @@ public class GameScreen extends JPanel implements Runnable {
 //                    g.fillRect(i * 20 + 1, j * 20 + 1, 18, 18);
 //                    g.setColor(Color.GRAY);
                 }
+
                 if (bg[i][j]==3){
-//                    g.drawImage(Data.imageWormKing, i * 20 - 6 + padding, j * 20 - 6 + padding, null);
-                    g.setColor(Color.yellow);
-                    g.fillRect(i * 20 +padding, j * 20 +padding, 18, 18);
-
-
+//                    g.setColor(Color.yellow);
+//                    g.fillRect(i * 20 +padding, j * 20 +padding, 18, 18);
+//                    g.drawImage(Data.imageWorm, i * 20 - 6 + padding, j * 20 - 6 + padding, null);
+                    if (m>i){
+                        m=i;
+                    }
+                    if (n>j){
+                        n= j;
+                    }
                 }
+
             }
         }
+        g.drawImage(Data.imageWormKing, m * 20 - 6 + padding, n * 20 - 6 + padding, null);
+
     }
 
     private void veKhung(Graphics g) {

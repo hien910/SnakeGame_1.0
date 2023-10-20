@@ -45,17 +45,17 @@ public class ConRan {
 
     public void resetGame() {
         doDai = 3;
-        x = new int[20];
-        y = new int[20];
+        x = new int[400];
+        y = new int[400];
 
-        x[0] = 5;
+        x[0] = 8;
         y[0] = 6;
 
-        x[1] = 5;
-        y[1] = 5;
+        x[1] = 8;
+        y[1] = 7;
 
-        x[2] = 5;
-        y[2] = 4;
+        x[2] = 8;
+        y[2] = 8;
 
         vector = ConRan.GO_RIGHT;
     }
@@ -140,7 +140,9 @@ public class ConRan {
                 GameScreen.score = 0;
                 GameScreen.currentLevel = 1;
                 speed = 500;
-                maxLength = 5;
+                maxLength = 7;
+                soMoi = 0;                  //
+                xuatMoiTo = 5;
             }
         }
 
@@ -151,8 +153,8 @@ public class ConRan {
 
             if (GameScreen.bg[x[0]][y[0]] == 2) {
                 doDai++;
-
                 soMoi++;
+
                 if (soMoi % xuatMoiTo == 0) {
                     xuatMoiTo += 3;
                     soMoi = 0;
@@ -169,8 +171,8 @@ public class ConRan {
 
                 GameScreen.bg[x[0]][y[0]] = 0;
                 GameScreen.bg[layToaDoMoi().x][layToaDoMoi().y] = 2;
-
                 GameScreen.score = GameScreen.score + (100 * GameScreen.currentLevel);
+
             } else if (GameScreen.bg[x[0]][y[0]] == 3) {
                 for (int i = x[0] - 1; i < x[0] + 2; i++) {
                     for (int j = y[0] - 1; j < y[0] + 2; j++) {
