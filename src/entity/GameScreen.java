@@ -28,11 +28,6 @@ public class GameScreen extends JPanel implements Runnable {
         thread.start();                                       // run
 
         bg[15][16] = 2;
-
-//        bg[11][11] =3;
-//        bg[11][10] =3;
-//        bg[10][11] =3;
-//        bg[10][10] =3;
     }
 
 

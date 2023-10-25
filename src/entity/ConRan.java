@@ -141,7 +141,7 @@ public class ConRan {
                 GameScreen.currentLevel = 1;
                 speed = 500;
                 maxLength = 7;
-                soMoi = 0;                  //
+                soMoi = 0;
                 xuatMoiTo = 5;
             }
         }
