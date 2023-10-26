@@ -1,5 +1,7 @@
 # SnakeGame_1.0
 Giới thiệu: Game rắn săn mồi là một tựa game cổ điển đã từng rất thành công ở những năm 9x 2000.
+
+
 Tổng quan project
 1. Các chức năng chính
 - Di chuyển
