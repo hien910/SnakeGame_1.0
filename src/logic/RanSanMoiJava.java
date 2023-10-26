@@ -86,7 +86,7 @@ public class RanSanMoiJava extends JFrame {
     public static void UpdateData() {
         FileWriter fw = null;
         try {
-            fw = new FileWriter("src\\data\\data.txt");
+            fw = new FileWriter("data.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (int i = 0; i < users.size(); i++) {
                 User u = new User(users.get(i).getName(),users.get(i).getScore());
@@ -107,7 +107,7 @@ public class RanSanMoiJava extends JFrame {
 
     public static void readData() {
         try {
-            FileReader fr = new FileReader("src\\data\\data.txt");
+            FileReader fr = new FileReader("data.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = null;
             while ((line = br.readLine()) != null) {
