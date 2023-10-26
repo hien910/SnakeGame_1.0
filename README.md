@@ -33,11 +33,10 @@ Tổng quan project
 7. Giao Diện
 - Sử dụng lớp Jframe và Jpanel để tạo cửa sổ và giao điện.
 
+# d
 -----------------------------------------------------------------------------------------
 Kết quả và hướng phát triển project
   - Qua quá trình làm đồ án hiểu được cơ bản ngôn ngữ java cùng các tính chất của lập trinh hướng đối tượng, ngoài ra còn biết thêm được các kiến thức về java.swing để tạo cửa sổ và thiết kế giao diện.
   - Trong tương lai game có thể phát triển với level khó hơn như tạo tường, vật cản để rắn khó di chuyển hơn, khi đó game sẽ trở nên thú vị hơn.
 
-
- 
 
