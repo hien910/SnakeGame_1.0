@@ -222,7 +222,6 @@ public class ConRan {
 
             t1 = System.currentTimeMillis();
             t2++;
-
         }
 
     }

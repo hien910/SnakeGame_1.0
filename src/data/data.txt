@@ -1,6 +1,9 @@
 hien 15000
+abc 8000
 Player4 6600
 hiendb 5400
 Player5 3400
+Player6 3200
 Player5 300
 Player6 200
+Player8 200

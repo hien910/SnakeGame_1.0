@@ -86,7 +86,7 @@ public class RanSanMoiJava extends JFrame {
     public static void UpdateData() {
         FileWriter fw = null;
         try {
-            fw = new FileWriter("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data\\data.txt");
+            fw = new FileWriter("src\\data\\data.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (int i = 0; i < users.size(); i++) {
                 User u = new User(users.get(i).getName(),users.get(i).getScore());
@@ -97,30 +97,28 @@ public class RanSanMoiJava extends JFrame {
                 }
                 bw.newLine();
             }
+            sortByScore(users);
             bw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        sortByScore(users);
+
     }
 
     public static void readData() {
         try {
-            FileReader fr = new FileReader("D:\\sourcecode\\j22-basic java\\SnakeGame_1.0\\src\\data\\data.txt");
+            FileReader fr = new FileReader("src\\data\\data.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = null;
             while ((line = br.readLine()) != null) {
                 String[] str = line.split(" ");
                 users.add(new User(str[0], Integer.parseInt(str[1])));
             }
-
             br.close();
+            sortByScore(users);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        sortByScore(users);
-
     }
     public static void sortByScore(ArrayList<User> list){
 
