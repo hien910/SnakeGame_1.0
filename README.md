@@ -1,6 +1,6 @@
 # SnakeGame_1.0
 ## Giới thiệu: 
-Game rắn săn mồi là một tựa game cổ điển đã từng rất thành công ở những năm 9x 2000. Dưới đây là project game rắn mồi được lập trình trên ngôn ngữ Java.
+Game rắn săn mồi là một tựa game cổ điển đã từng rất thành công ở những năm 9x 2000. Dưới đây là project game rắn mồi được lập trình bằng ngôn ngữ Java.
 
 
 ## Tổng quan project
