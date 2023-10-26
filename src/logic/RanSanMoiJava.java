@@ -21,6 +21,7 @@ public class RanSanMoiJava extends JFrame {
 
     public RanSanMoiJava() {
         setSize(735, 460);
+        setTitle("Snake Game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); /// tat cua so chuong trinh se tat luon
 
         users = new ArrayList<>();
