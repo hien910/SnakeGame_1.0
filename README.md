@@ -1,8 +1,9 @@
 # SnakeGame_1.0
-Giới thiệu: Game rắn săn mồi là một tựa game cổ điển đã từng rất thành công ở những năm 9x 2000.
+## Giới thiệu: 
+Game rắn săn mồi là một tựa game cổ điển đã từng rất thành công ở những năm 9x 2000. Dưới đây là project game rắn mồi được lập trình trên ngôn ngữ Java.
 
 
-Tổng quan project
+## Tổng quan project
 1. Các chức năng chính
 - Di chuyển
 - Tạo thức ăn
@@ -33,10 +34,19 @@ Tổng quan project
 7. Giao Diện
 - Sử dụng lớp Jframe và Jpanel để tạo cửa sổ và giao điện.
 
-# d
+## Biểu đồ
+- Use-Case Diagram [usecase_diagram](diagram/UseCase_Diagram.vpd)
+![](diagram/UseCaseDiagram.png)
+
+- Class Diagram [class_diagram](diagram/ClassDiagram_1.asta)
+![](diagram/ClassDiagram.png)
+
+- Sequence Diagram [sequence_diagram](diagram/Sequence_Diagram.vpd)
+![](diagram/SequenceDiagram.png)
+
 -----------------------------------------------------------------------------------------
-Kết quả và hướng phát triển project
-  - Qua quá trình làm đồ án hiểu được cơ bản ngôn ngữ java cùng các tính chất của lập trinh hướng đối tượng, ngoài ra còn biết thêm được các kiến thức về java.swing để tạo cửa sổ và thiết kế giao diện.
-  - Trong tương lai game có thể phát triển với level khó hơn như tạo tường, vật cản để rắn khó di chuyển hơn, khi đó game sẽ trở nên thú vị hơn.
+## Kết quả và hướng phát triển project
+  - Qua quá trình làm đồ án, em đã hiểu được cơ bản ngôn ngữ java cùng các tính chất của lập trình hướng đối tượng, ngoài ra còn biết thêm được các kiến thức về java.swing để tạo cửa sổ và thiết kế giao diện.
+  - Trong tương lai game rắn săn mồi có thể phát triển với level khó hơn như tạo tường, vật cản để rắn khó di chuyển hơn, khi đó game sẽ trở nên thú vị hơn.
 
 
