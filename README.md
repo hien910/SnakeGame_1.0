@@ -10,7 +10,7 @@ Game rắn săn mồi là một tựa game cổ điển đã từng rất thành
 - Rắn dài ra khi ăn thức ăn
 - Rắn cắn thân hoặc đuôi thì gameover.
 2. Rắn
-- Rắn khi khởi tạo có đô dài là 3, đơn vị là 1 ô vuông, khi ăn mồi sẽ dài ra 1 đơn vị
+- Rắn khi khởi tạo có độ dài là 3, đơn vị là 1 ô vuông, khi ăn mồi sẽ dài ra 1 đơn vị
 - Rắn di chuyển theo hướng mũi tên(không thể di chuyển theo hướng ngược lại so với hướng đang di chuyển)
 - Rắn cắn thân hoặc đuôi thì gameover
 - Rắn có thể di xuyên màn hình và xuất hiện ở màn hình bên kia
